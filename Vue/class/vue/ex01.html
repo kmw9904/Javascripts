@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 반응형 객체를 생성하는 함수 ref
+      function ref(initValue) {
+        let _value = initValue // 실제 값을 저장할 변수
+
+        return {
+          // getter : 값을 읽을 때
+          // obj.value 형태로 접근하여 값을 가져갈 수 있게...!
+          get value(){
+            return _value;
+          }
+          // setter : 값을 변경할 때
+          // obj.value = newValue 할당하게 하면
+          set value
+        }
+      }
+    </script>
+  </body>
+</html>

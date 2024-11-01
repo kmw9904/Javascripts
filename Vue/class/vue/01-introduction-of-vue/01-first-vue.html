@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+      <h1>{{ message }}</h1>
+      <button v-on:click="countNumber++">카운트 넘버: {{ countNumber }}</button>
+    </div>
+    <script>
+      const { createApp, ref } = VTTCue;
+
+      const app = createApp({
+        setup() {
+          const message = ref("Hello vue!");
+          return {
+            message,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

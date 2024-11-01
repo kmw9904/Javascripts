@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>User Profile</h1>
+      <p>Name: {{ user.name }}</p>
+      <p>Age: {{ user.age }}</p>
+      <button @click="changeName">Change Name</button>
+      <button @click="changeAge">Change Age</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+
+      const app = createApp({
+        setup() {
+          const user = ref({
+            name: "Alice",
+            age: 30,
+          });
+          const changeName = function () {
+            // 이름이 변경되는 기능
+            // 1. 대화 상자를 띄운다 (프롬프트) 받아온 값을 name 임시변수에 할당
+            let name = prompt("Enter new name :", user.value.name);
+            // user 반응형변수의 name 속성으로 재할당
+            if (name !== null) {
+              user.value.name = name;
+            }
+
+            const changeAge = function () {
+              let age = prompt("Enter new age :", user.value.age);
+
+              if (age !== null) {
+                user.value.age = age;
+              }
+            };
+          };
+          return {
+            user,
+            changeName,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
